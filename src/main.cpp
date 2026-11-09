@@ -32,7 +32,7 @@ int rpmToLEDCount(int rpm){
 
 void showRPM(int rpm){
   if (rpm >= RPM_SHIFT){
-    bool on = (millis()/60)%2; //8Hz flash
+    bool on = (millis()/45%2); //12Hz flash
     for (int i = 0; i < NUM_LEDS; i++){
       digitalWrite(LED_PINS[i], on);
     }
@@ -58,9 +58,10 @@ void setup(){
   //INIT
   for(int i = 0; i< NUM_LEDS; i++){
     digitalWrite(LED_PINS[i], HIGH);
-    delay(500);
+    delay(200);
   }
-  delay (300);
+
+  delay (100);
   for (int i =0; i< NUM_LEDS; i++){
     digitalWrite(LED_PINS[i], LOW);
   }
